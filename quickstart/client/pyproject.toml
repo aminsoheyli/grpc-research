@@ -3,4 +3,6 @@ name = "client"
 version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
+    "grpcio>=1.81.1",
+    "grpcio-tools>=1.81.1",
 ]
