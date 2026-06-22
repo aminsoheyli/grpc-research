@@ -1,8 +1,9 @@
-FROM python:3.12
+FROM python:3.12-slim
 WORKDIR /app
 
-# Install uv
-RUN pip install uv
+# Download and install uv binary directly
+RUN curl -LsSf https://astral.sh/uv/install.sh | sh
+ENV PATH="/root/.local/bin:$PATH"
 
 # Copy only dependency files first (better caching)
 COPY ./pyproject.toml /app/pyproject.toml
