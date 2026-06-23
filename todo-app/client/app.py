@@ -24,12 +24,16 @@ def run():
     with grpc.insecure_channel(f'{SERVER_HOST}:{SERVER_PORT}') as channel:
         stub = todo_pb2_grpc.TodoStub(channel)
 
-        logging.info('Unary mode: Client → Server (single request, single response)')
+        logging.info('CREATE | Unary single item: Client → Server (single request, single response)')
         response = stub.CreateTodo(todo_pb2.CreateTodoRequest(text='new todo'))
         logging.info(response)
 
-        logging.info('Server Streaming: Client → Server (single request, stream of responses)')
-        response = stub.ReadTodos(todo_pb2.Empty())
+        logging.info('READ | Unary single item: Client → Server (single request, single response)')
+        response = stub.GetTodo(todo_pb2.GetTodoRequest(id=2))
+        logging.info(response)
+
+        logging.info('READ | Unary multiple items: Client → Server (single request, single response, multiple items)')
+        response = stub.ListTodos(todo_pb2.Empty())
         logging.info(response)
 
 

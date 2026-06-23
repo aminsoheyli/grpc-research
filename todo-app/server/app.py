@@ -38,8 +38,26 @@ class Todos(todo_pb2_grpc.TodoServicer):
 
         return new_todo
 
-    def ReadTodos(self, request, context):
+    def GetTodo(self, request, context):
+        todo = self._find_todo(request.id)
+
+        if not todo:
+            context.abort(
+                grpc.StatusCode.NOT_FOUND,
+                f"Todo with id '{request.id}' not found"
+            )
+
+        return todo
+
+    def ListTodos(self, request, context):
         return todo_pb2.TodoItems(items=todos)
+
+    @staticmethod
+    def _find_todo(todo_id: int):
+        for todo in todos:
+            if todo.id == todo_id:
+                return todo
+        return None
 
 
 def serve():
