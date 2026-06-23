@@ -25,11 +25,11 @@ def run():
         stub = todo_pb2_grpc.TodoStub(channel)
 
         logging.info('Unary mode: Client → Server (single request, single response)')
-        response = stub.createTodo(todo_pb2.CreateTodoRequest(text='new todo'))
+        response = stub.CreateTodo(todo_pb2.CreateTodoRequest(text='new todo'))
         logging.info(response)
 
         logging.info('Server Streaming: Client → Server (single request, stream of responses)')
-        response = stub.readTodos(todo_pb2.void())
+        response = stub.ReadTodos(todo_pb2.Empty())
         logging.info(response)
 
 

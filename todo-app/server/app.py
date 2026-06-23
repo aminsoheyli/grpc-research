@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 
 
 class Todos(todo_pb2_grpc.TodoServicer):
-    def createTodo(self, request, context):
+    def CreateTodo(self, request, context):
         new_todo = todo_pb2.TodoItem(
             id=len(todos) + 1,
             text=request.text
@@ -38,7 +38,7 @@ class Todos(todo_pb2_grpc.TodoServicer):
 
         return new_todo
 
-    def readTodos(self, request, context):
+    def ReadTodos(self, request, context):
         return todo_pb2.TodoItems(items=todos)
 
 
