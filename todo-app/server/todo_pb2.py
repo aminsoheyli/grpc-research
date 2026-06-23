@@ -24,7 +24,7 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ntodo.proto\x12\x0btodoPackage\"\x07\n\x05\x45mpty\"!\n\x11\x43reateTodoRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\"\x1c\n\x0eGetTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"A\n\x11UpdateTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x11\n\tcompleted\x18\x03 \x01(\x08\"\x1f\n\x11\x44\x65leteTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"F\n\x08TodoItem\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04text\x18\x02 \x01(\t\x12\r\n\x05title\x18\x03 \x01(\t\x12\x11\n\tcompleted\x18\x04 \x01(\x08\"1\n\tTodoItems\x12$\n\x05items\x18\x01 \x03(\x0b\x32\x15.todoPackage.TodoItem2\x8a\x03\n\x04Todo\x12\x43\n\nCreateTodo\x12\x1e.todoPackage.CreateTodoRequest\x1a\x15.todoPackage.TodoItem\x12=\n\x07GetTodo\x12\x1b.todoPackage.GetTodoRequest\x1a\x15.todoPackage.TodoItem\x12\x37\n\tListTodos\x12\x12.todoPackage.Empty\x1a\x16.todoPackage.TodoItems\x12>\n\x0fListTodosStream\x12\x12.todoPackage.Empty\x1a\x15.todoPackage.TodoItem0\x01\x12\x43\n\nUpdateTodo\x12\x1e.todoPackage.UpdateTodoRequest\x1a\x15.todoPackage.TodoItem\x12@\n\nDeleteTodo\x12\x1e.todoPackage.DeleteTodoRequest\x1a\x12.todoPackage.Emptyb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ntodo.proto\x12\x0btodoPackage\"\x07\n\x05\x45mpty\"J\n\x11\x43reateTodoRequest\x12\r\n\x05title\x18\x01 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x02 \x01(\t\x12\x11\n\tcompleted\x18\x03 \x01(\x08\"\x1c\n\x0eGetTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"V\n\x11UpdateTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x11\n\tcompleted\x18\x04 \x01(\x08\"\x1f\n\x11\x44\x65leteTodoRequest\x12\n\n\x02id\x18\x01 \x01(\x05\"M\n\x08TodoItem\x12\n\n\x02id\x18\x01 \x01(\x05\x12\r\n\x05title\x18\x02 \x01(\t\x12\x13\n\x0b\x64\x65scription\x18\x03 \x01(\t\x12\x11\n\tcompleted\x18\x04 \x01(\x08\"1\n\tTodoItems\x12$\n\x05items\x18\x01 \x03(\x0b\x32\x15.todoPackage.TodoItem2\x8a\x03\n\x04Todo\x12\x43\n\nCreateTodo\x12\x1e.todoPackage.CreateTodoRequest\x1a\x15.todoPackage.TodoItem\x12=\n\x07GetTodo\x12\x1b.todoPackage.GetTodoRequest\x1a\x15.todoPackage.TodoItem\x12\x37\n\tListTodos\x12\x12.todoPackage.Empty\x1a\x16.todoPackage.TodoItems\x12>\n\x0fListTodosStream\x12\x12.todoPackage.Empty\x1a\x15.todoPackage.TodoItem0\x01\x12\x43\n\nUpdateTodo\x12\x1e.todoPackage.UpdateTodoRequest\x1a\x15.todoPackage.TodoItem\x12@\n\nDeleteTodo\x12\x1e.todoPackage.DeleteTodoRequest\x1a\x12.todoPackage.Emptyb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
@@ -34,17 +34,17 @@ if not _descriptor._USE_C_DESCRIPTORS:
   _globals['_EMPTY']._serialized_start=27
   _globals['_EMPTY']._serialized_end=34
   _globals['_CREATETODOREQUEST']._serialized_start=36
-  _globals['_CREATETODOREQUEST']._serialized_end=69
-  _globals['_GETTODOREQUEST']._serialized_start=71
-  _globals['_GETTODOREQUEST']._serialized_end=99
-  _globals['_UPDATETODOREQUEST']._serialized_start=101
-  _globals['_UPDATETODOREQUEST']._serialized_end=166
-  _globals['_DELETETODOREQUEST']._serialized_start=168
-  _globals['_DELETETODOREQUEST']._serialized_end=199
-  _globals['_TODOITEM']._serialized_start=201
-  _globals['_TODOITEM']._serialized_end=271
-  _globals['_TODOITEMS']._serialized_start=273
-  _globals['_TODOITEMS']._serialized_end=322
-  _globals['_TODO']._serialized_start=325
-  _globals['_TODO']._serialized_end=719
+  _globals['_CREATETODOREQUEST']._serialized_end=110
+  _globals['_GETTODOREQUEST']._serialized_start=112
+  _globals['_GETTODOREQUEST']._serialized_end=140
+  _globals['_UPDATETODOREQUEST']._serialized_start=142
+  _globals['_UPDATETODOREQUEST']._serialized_end=228
+  _globals['_DELETETODOREQUEST']._serialized_start=230
+  _globals['_DELETETODOREQUEST']._serialized_end=261
+  _globals['_TODOITEM']._serialized_start=263
+  _globals['_TODOITEM']._serialized_end=340
+  _globals['_TODOITEMS']._serialized_start=342
+  _globals['_TODOITEMS']._serialized_end=391
+  _globals['_TODO']._serialized_start=394
+  _globals['_TODO']._serialized_end=788
 # @@protoc_insertion_point(module_scope)
