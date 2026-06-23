@@ -17,11 +17,15 @@ logging.basicConfig(
 todos = [
     todo_pb2.TodoItem(
         id=1,
-        text='todo 1',
+        title='Todo 1',
+        description='todo description 1',
+        completed=False
     ),
     todo_pb2.TodoItem(
         id=2,
-        text='todo 2',
+        title='Todo 2',
+        description='todo description 2',
+        completed=True
     )
 ]
 
@@ -32,7 +36,9 @@ class Todos(todo_pb2_grpc.TodoServicer):
     def CreateTodo(self, request, context):
         new_todo = todo_pb2.TodoItem(
             id=len(todos) + 1,
-            text=request.text
+            title=request.title,
+            description=request.description,
+            completed=request.completed
         )
         todos.append(new_todo)
 
@@ -55,6 +61,23 @@ class Todos(todo_pb2_grpc.TodoServicer):
     def ListTodosStream(self, request, context):
         for todo in todos:
             yield todo
+
+    def UpdateTodo(self, request, context):
+        todo_id = request.id
+        todo = self._find_todo(todo_id)
+
+        if not todo:
+            context.abort(
+                grpc.StatusCode.NOT_FOUND,
+                f"Todo with id '{todo_id}' not found"
+            )
+
+        todo.title = request.title
+        todo.description = request.description
+        todo.completed = request.completed
+
+        logging.info(f'{todos=}')
+        return todo
 
     @staticmethod
     def _find_todo(todo_id: int):

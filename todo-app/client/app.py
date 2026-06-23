@@ -25,7 +25,9 @@ def run():
         stub = todo_pb2_grpc.TodoStub(channel)
 
         logging.info('CREATE | Unary single item: Client → Server (single request, single response)')
-        response = stub.CreateTodo(todo_pb2.CreateTodoRequest(text='new todo'))
+        response = stub.CreateTodo(
+            todo_pb2.CreateTodoRequest(title='new todo', description='new description', completed=False)
+        )
         logging.info(response)
 
         logging.info('READ | Unary single item: Client → Server (single request, single response)')
@@ -40,6 +42,15 @@ def run():
         response = stub.ListTodosStream(todo_pb2.Empty())
         for todo in response:
             logging.info(todo)
+
+        logging.info('UPDATE | Unary single item: Client → Server (single request, single response)')
+        response = stub.UpdateTodo(
+            todo_pb2.UpdateTodoRequest(
+                id=1, title='updated title',
+                description='updated description', completed=True
+            )
+        )
+        logging.info(response)
 
 
 if __name__ == "__main__":
