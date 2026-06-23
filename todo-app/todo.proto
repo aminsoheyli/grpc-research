@@ -3,8 +3,19 @@ syntax = "proto3";
 package todoPackage;
 
 service Todo {
+  // CREATE
   rpc CreateTodo(CreateTodoRequest) returns (TodoItem);
-  rpc ReadTodos(Empty) returns (TodoItems);
+
+  // READ
+  rpc GetTodo(GetTodoRequest) returns (TodoItem);              // Single item
+  rpc ListTodos(Empty) returns (TodoItems);                    // Multiple items - Unary - all at once
+  rpc ListTodosStream(Empty) returns (stream TodoItem);        // Streaming variant - Streaming - one at a time
+
+  // UPDATE
+  rpc UpdateTodo(UpdateTodoRequest) returns (TodoItem);
+
+  // DELETE
+  rpc DeleteTodo(DeleteTodoRequest) returns (Empty);
 }
 
 message Empty {}
@@ -12,9 +23,26 @@ message Empty {}
 message CreateTodoRequest {
   string text = 1;
 }
+
+message GetTodoRequest {
+  string id = 1;
+}
+
+message UpdateTodoRequest {
+  string id = 1;
+  string title = 2;
+  bool completed = 3;
+}
+
+message DeleteTodoRequest {
+  string id = 1;
+}
+
 message TodoItem {
   int32 id = 1;
   string text = 2;
+  string title = 3;
+  bool completed = 4;
 }
 
 message TodoItems {
