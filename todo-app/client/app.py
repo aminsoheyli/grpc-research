@@ -52,6 +52,10 @@ def run():
         )
         logging.info(response)
 
+        logging.info('DELETE | Unary single item: Client → Server (single request, single response)')
+        response = stub.DeleteTodo(todo_pb2.DeleteTodoRequest(id=2))
+        logging.info(response)
+
 
 if __name__ == "__main__":
     run()

@@ -76,8 +76,22 @@ class Todos(todo_pb2_grpc.TodoServicer):
         todo.description = request.description
         todo.completed = request.completed
 
-        logging.info(f'{todos=}')
+        logging.info(f'After update: {todos=}')
         return todo
+
+    def DeleteTodo(self, request, context):
+        todo_id = request.id
+        todo = self._find_todo(todo_id)
+
+        if not todo:
+            context.abort(
+                grpc.StatusCode.NOT_FOUND,
+                f"Todo with id '{todo_id}' not found"
+            )
+
+        todos.remove(todo)
+        logging.info(f'After delete: {todos=}')
+        return todo_pb2.Empty()
 
     @staticmethod
     def _find_todo(todo_id: int):
