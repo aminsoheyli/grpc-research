@@ -16,13 +16,39 @@ class CreateTodoRequest(_message.Message):
     text: str
     def __init__(self, text: _Optional[str] = ...) -> None: ...
 
+class GetTodoRequest(_message.Message):
+    __slots__ = ("id",)
+    ID_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    def __init__(self, id: _Optional[str] = ...) -> None: ...
+
+class UpdateTodoRequest(_message.Message):
+    __slots__ = ("id", "title", "completed")
+    ID_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    title: str
+    completed: bool
+    def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ..., completed: _Optional[bool] = ...) -> None: ...
+
+class DeleteTodoRequest(_message.Message):
+    __slots__ = ("id",)
+    ID_FIELD_NUMBER: _ClassVar[int]
+    id: str
+    def __init__(self, id: _Optional[str] = ...) -> None: ...
+
 class TodoItem(_message.Message):
-    __slots__ = ("id", "text")
+    __slots__ = ("id", "text", "title", "completed")
     ID_FIELD_NUMBER: _ClassVar[int]
     TEXT_FIELD_NUMBER: _ClassVar[int]
+    TITLE_FIELD_NUMBER: _ClassVar[int]
+    COMPLETED_FIELD_NUMBER: _ClassVar[int]
     id: int
     text: str
-    def __init__(self, id: _Optional[int] = ..., text: _Optional[str] = ...) -> None: ...
+    title: str
+    completed: bool
+    def __init__(self, id: _Optional[int] = ..., text: _Optional[str] = ..., title: _Optional[str] = ..., completed: _Optional[bool] = ...) -> None: ...
 
 class TodoItems(_message.Message):
     __slots__ = ("items",)
