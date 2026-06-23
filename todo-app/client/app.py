@@ -36,6 +36,11 @@ def run():
         response = stub.ListTodos(todo_pb2.Empty())
         logging.info(response)
 
+        logging.info('READ | Stream multiple items: Client → Server (single request, stream items)')
+        response = stub.ListTodosStream(todo_pb2.Empty())
+        for todo in response:
+            logging.info(todo)
+
 
 if __name__ == "__main__":
     run()

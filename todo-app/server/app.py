@@ -52,6 +52,10 @@ class Todos(todo_pb2_grpc.TodoServicer):
     def ListTodos(self, request, context):
         return todo_pb2.TodoItems(items=todos)
 
+    def ListTodosStream(self, request, context):
+        for todo in todos:
+            yield todo
+
     @staticmethod
     def _find_todo(todo_id: int):
         for todo in todos:
