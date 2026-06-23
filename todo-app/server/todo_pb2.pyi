@@ -19,24 +19,24 @@ class CreateTodoRequest(_message.Message):
 class GetTodoRequest(_message.Message):
     __slots__ = ("id",)
     ID_FIELD_NUMBER: _ClassVar[int]
-    id: str
-    def __init__(self, id: _Optional[str] = ...) -> None: ...
+    id: int
+    def __init__(self, id: _Optional[int] = ...) -> None: ...
 
 class UpdateTodoRequest(_message.Message):
     __slots__ = ("id", "title", "completed")
     ID_FIELD_NUMBER: _ClassVar[int]
     TITLE_FIELD_NUMBER: _ClassVar[int]
     COMPLETED_FIELD_NUMBER: _ClassVar[int]
-    id: str
+    id: int
     title: str
     completed: bool
-    def __init__(self, id: _Optional[str] = ..., title: _Optional[str] = ..., completed: _Optional[bool] = ...) -> None: ...
+    def __init__(self, id: _Optional[int] = ..., title: _Optional[str] = ..., completed: _Optional[bool] = ...) -> None: ...
 
 class DeleteTodoRequest(_message.Message):
     __slots__ = ("id",)
     ID_FIELD_NUMBER: _ClassVar[int]
-    id: str
-    def __init__(self, id: _Optional[str] = ...) -> None: ...
+    id: int
+    def __init__(self, id: _Optional[int] = ...) -> None: ...
 
 class TodoItem(_message.Message):
     __slots__ = ("id", "text", "title", "completed")

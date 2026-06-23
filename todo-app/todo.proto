@@ -25,17 +25,17 @@ message CreateTodoRequest {
 }
 
 message GetTodoRequest {
-  string id = 1;
+  int32 id = 1;
 }
 
 message UpdateTodoRequest {
-  string id = 1;
+  int32 id = 1;
   string title = 2;
   bool completed = 3;
 }
 
 message DeleteTodoRequest {
-  string id = 1;
+  int32 id = 1;
 }
 
 message TodoItem {
