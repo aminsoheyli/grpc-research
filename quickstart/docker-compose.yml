@@ -4,24 +4,12 @@ services:
     build: ./server
     ports:
       - "8080:8080"
-    volumes:
-      - ./server:/app
     restart: always
-    depends_on:
-      - db
   client:
     build: ./client
-    ports:
-      - "8001:8080"
-    volumes:
-      - ./client:/app
     restart: always
+    environment:
+      - SERVER_HOST=server
+      - SERVER_PORT=8080
     depends_on:
       - server
-      - db
-  db:
-    image: mysql:5.7
-    environment:
-      MYSQL_ROOT_PASSWORD: "root"
-    ports:
-      - "3306:3306"
