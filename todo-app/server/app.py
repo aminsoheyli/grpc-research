@@ -20,12 +20,8 @@ todos = [
         text='todo 1',
     ),
     todo_pb2.TodoItem(
-        id=1,
-        text='todo 1',
-    ),
-    todo_pb2.TodoItem(
-        id=1,
-        text='todo 1',
+        id=2,
+        text='todo 2',
     )
 ]
 
@@ -41,6 +37,9 @@ class Todos(todo_pb2_grpc.TodoServicer):
         todos.append(new_todo)
 
         return new_todo
+
+    def readTodos(self, request, context):
+        return todo_pb2.TodoItems(items=todos)
 
 
 def serve():
