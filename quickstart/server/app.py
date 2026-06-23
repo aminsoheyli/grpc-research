@@ -1,9 +1,20 @@
+import logging
 from concurrent import futures
 
 import grpc
+import sys
 
 import users_pb2
 import users_pb2_grpc
+
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s [%(levelname)s] %(message)s',
+    stream=sys.stdout,
+    force=True
+)
+
+logger = logging.getLogger(__name__)
 
 
 class Users(users_pb2_grpc.UsersServicer):
@@ -31,12 +42,12 @@ class Users(users_pb2_grpc.UsersServicer):
 
 
 def serve():
-    port = "50051"
+    port = "8080"
     server = grpc.server(futures.ThreadPoolExecutor(max_workers=10))
     users_pb2_grpc.add_UsersServicer_to_server(Users(), server)
     server.add_insecure_port("[::]:" + port)
     server.start()
-    print("Server started, listening on " + port)
+    logging.info("Server started, listening on " + port)
     server.wait_for_termination()
 
 
