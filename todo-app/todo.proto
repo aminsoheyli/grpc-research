@@ -3,11 +3,11 @@ syntax = "proto3";
 package todoPackage;
 
 service Todo {
-  rpc createTodo(CreateTodoRequest) returns (TodoItem);
-  rpc readTodos(void) returns (TodoItems);
+  rpc CreateTodo(CreateTodoRequest) returns (TodoItem);
+  rpc ReadTodos(Empty) returns (TodoItems);
 }
 
-message void {}
+message Empty {}
 
 message CreateTodoRequest {
   string text = 1;
