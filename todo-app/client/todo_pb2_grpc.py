@@ -34,14 +34,14 @@ class TodoStub:
         Args:
             channel: A grpc.Channel.
         """
-        self.createTodo = channel.unary_unary(
-                '/todoPackage.Todo/createTodo',
+        self.CreateTodo = channel.unary_unary(
+                '/todoPackage.Todo/CreateTodo',
                 request_serializer=todo__pb2.CreateTodoRequest.SerializeToString,
                 response_deserializer=todo__pb2.TodoItem.FromString,
                 _registered_method=True)
-        self.readTodos = channel.unary_unary(
-                '/todoPackage.Todo/readTodos',
-                request_serializer=todo__pb2.void.SerializeToString,
+        self.ReadTodos = channel.unary_unary(
+                '/todoPackage.Todo/ReadTodos',
+                request_serializer=todo__pb2.Empty.SerializeToString,
                 response_deserializer=todo__pb2.TodoItems.FromString,
                 _registered_method=True)
 
@@ -49,13 +49,13 @@ class TodoStub:
 class TodoServicer:
     """Missing associated documentation comment in .proto file."""
 
-    def createTodo(self, request, context):
+    def CreateTodo(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def readTodos(self, request, context):
+    def ReadTodos(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
@@ -64,14 +64,14 @@ class TodoServicer:
 
 def add_TodoServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'createTodo': grpc.unary_unary_rpc_method_handler(
-                    servicer.createTodo,
+            'CreateTodo': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateTodo,
                     request_deserializer=todo__pb2.CreateTodoRequest.FromString,
                     response_serializer=todo__pb2.TodoItem.SerializeToString,
             ),
-            'readTodos': grpc.unary_unary_rpc_method_handler(
-                    servicer.readTodos,
-                    request_deserializer=todo__pb2.void.FromString,
+            'ReadTodos': grpc.unary_unary_rpc_method_handler(
+                    servicer.ReadTodos,
+                    request_deserializer=todo__pb2.Empty.FromString,
                     response_serializer=todo__pb2.TodoItems.SerializeToString,
             ),
     }
@@ -86,7 +86,7 @@ class Todo:
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def createTodo(request,
+    def CreateTodo(request,
             target,
             options=(),
             channel_credentials=None,
@@ -99,7 +99,7 @@ class Todo:
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/todoPackage.Todo/createTodo',
+            '/todoPackage.Todo/CreateTodo',
             todo__pb2.CreateTodoRequest.SerializeToString,
             todo__pb2.TodoItem.FromString,
             options,
@@ -113,7 +113,7 @@ class Todo:
             _registered_method=True)
 
     @staticmethod
-    def readTodos(request,
+    def ReadTodos(request,
             target,
             options=(),
             channel_credentials=None,
@@ -126,8 +126,8 @@ class Todo:
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/todoPackage.Todo/readTodos',
-            todo__pb2.void.SerializeToString,
+            '/todoPackage.Todo/ReadTodos',
+            todo__pb2.Empty.SerializeToString,
             todo__pb2.TodoItems.FromString,
             options,
             channel_credentials,

@@ -6,7 +6,7 @@ from typing import ClassVar as _ClassVar, Optional as _Optional, Union as _Union
 
 DESCRIPTOR: _descriptor.FileDescriptor
 
-class void(_message.Message):
+class Empty(_message.Message):
     __slots__ = ()
     def __init__(self) -> None: ...
 

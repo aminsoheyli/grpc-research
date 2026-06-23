@@ -24,21 +24,21 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ntodo.proto\x12\x0btodoPackage\"\x06\n\x04void\"!\n\x11\x43reateTodoRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\"$\n\x08TodoItem\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04text\x18\x02 \x01(\t\"1\n\tTodoItems\x12$\n\x05items\x18\x01 \x03(\x0b\x32\x15.todoPackage.TodoItem2\x83\x01\n\x04Todo\x12\x43\n\ncreateTodo\x12\x1e.todoPackage.CreateTodoRequest\x1a\x15.todoPackage.TodoItem\x12\x36\n\treadTodos\x12\x11.todoPackage.void\x1a\x16.todoPackage.TodoItemsb\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\ntodo.proto\x12\x0btodoPackage\"\x07\n\x05\x45mpty\"!\n\x11\x43reateTodoRequest\x12\x0c\n\x04text\x18\x01 \x01(\t\"$\n\x08TodoItem\x12\n\n\x02id\x18\x01 \x01(\x05\x12\x0c\n\x04text\x18\x02 \x01(\t\"1\n\tTodoItems\x12$\n\x05items\x18\x01 \x03(\x0b\x32\x15.todoPackage.TodoItem2\x84\x01\n\x04Todo\x12\x43\n\nCreateTodo\x12\x1e.todoPackage.CreateTodoRequest\x1a\x15.todoPackage.TodoItem\x12\x37\n\tReadTodos\x12\x12.todoPackage.Empty\x1a\x16.todoPackage.TodoItemsb\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'todo_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_VOID']._serialized_start=27
-  _globals['_VOID']._serialized_end=33
-  _globals['_CREATETODOREQUEST']._serialized_start=35
-  _globals['_CREATETODOREQUEST']._serialized_end=68
-  _globals['_TODOITEM']._serialized_start=70
-  _globals['_TODOITEM']._serialized_end=106
-  _globals['_TODOITEMS']._serialized_start=108
-  _globals['_TODOITEMS']._serialized_end=157
-  _globals['_TODO']._serialized_start=160
-  _globals['_TODO']._serialized_end=291
+  _globals['_EMPTY']._serialized_start=27
+  _globals['_EMPTY']._serialized_end=34
+  _globals['_CREATETODOREQUEST']._serialized_start=36
+  _globals['_CREATETODOREQUEST']._serialized_end=69
+  _globals['_TODOITEM']._serialized_start=71
+  _globals['_TODOITEM']._serialized_end=107
+  _globals['_TODOITEMS']._serialized_start=109
+  _globals['_TODOITEMS']._serialized_end=158
+  _globals['_TODO']._serialized_start=161
+  _globals['_TODO']._serialized_end=293
 # @@protoc_insertion_point(module_scope)
